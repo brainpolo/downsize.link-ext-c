@@ -7,7 +7,6 @@ function copyToClipboard(text) {
   try {
     const successful = document.execCommand('copy');
     if (successful) {
-      console.log('Text copied:', text);
     } else {
       console.error('Unable to copy text');
     }
@@ -26,7 +25,7 @@ async function showSuccessMessage() {
   setTimeout(() => {
     successMessage.style.display = 'none';
     window.close();
-  }, 2500);
+  }, 2800);
 }
 
 function sendMessage(tabUrl, mode) {
@@ -55,7 +54,6 @@ function sendMessage(tabUrl, mode) {
     try {
       const response = await sendMessage(tabUrl, mode);
       if (response && response.success) {
-        console.log('response.data', response.data)
         const success = await copyToClipboard(response.data);
         if (success) {
           showSuccessMessage();

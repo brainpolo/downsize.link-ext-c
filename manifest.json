@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "AJAX to Clipboard",
+  "name": "plish",
   "version": "1.0",
-  "description": "Sends an AJAX request and copies the result to the clipboard.",
+  "description": "A free, privacy-focused URL shortener.",
   "icons": {
     "16": "images/icon-16.png",
     "32": "images/icon-32.png",
@@ -11,10 +11,10 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "plish"
+    "default_title": "plish",
+    "default_icon": "images/icon-48.png"
   },
   "permissions": [
-    "clipboardWrite",
     "activeTab"
   ],
   "background": {

@@ -1,7 +1,7 @@
 /* ! Base Body Styles */
 body {
 width: 300px;
-height: 80px;
+height: 50px;
 margin: 0;
 padding: 0;
 
@@ -9,12 +9,8 @@ text-align: center;
 
 border-radius: 10px;
 
-font-family: Arial, sans-serif;
 }
 
-h2 {
-    color: #5046e5
-}
 
 button {
   border: none;
@@ -28,7 +24,6 @@ button {
     background-color: #007bff;
 }
 
-/* Default styles (Light theme) */
 body.light-theme,
 body:not(.dark-theme) {
   color: #000000;
@@ -41,7 +36,7 @@ button:not(.dark-theme) {
   background-color: #f0f0f0;
 }
 
-/* Dark theme */
+
 body.dark-theme {
   color: #ffffff;
   background-color: #1a1a1a;
@@ -52,6 +47,22 @@ button.dark-theme {
   background-color: #333333;
 }
 
+
+.popup-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    margin: 10px;
+    padding: 5px;
+
+    color: #5046e5;
+}
+.popup-title a {
+    color: #5046e5;
+}
+
+
 #color-theme-container {
     position: absolute;
     top : 0;
@@ -59,16 +70,12 @@ button.dark-theme {
 
     display: flex;
 
-    margin: 5px;
-    padding: 5px;
+    margin: 10px;
+    padding: 10px;
 }
 
-#successMessage {
-display: none;
-
-margin-top: 20px;
-
-color: #0F0;
+#color-theme-container button {
+        cursor: pointer;
 }
 
 
@@ -77,8 +84,11 @@ color: #0F0;
     align-items: center;
     justify-content: center;
 
-    margin-top: 10px;
+    margin: 10px;
+    padding: 10px;
+
 }
+
 
 #mode-container button {
     width: 85px;
@@ -93,6 +103,7 @@ color: #0F0;
     box-shadow: inset 0 0 6px #b0b0b0;
 }
 
+
 #mode-container button:hover {
     transition: transform 0.15s ease-in-out;
     transform: scale(1.15);
@@ -101,3 +112,16 @@ color: #0F0;
 
     
 }
+
+
+#successMessage {
+display: none;
+
+margin-top: 30px;
+
+color: rgba(23, 210, 23, 0.708);
+
+font-size: large;
+font-weight: bold;
+}
+

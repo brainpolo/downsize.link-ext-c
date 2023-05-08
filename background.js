@@ -9,11 +9,7 @@ async function copyToClipboard(text) {
 }
 
 async function fetchData(tabUrl, mode) {
-    console.log("fetchData")
     const apiEndpoint = 'https://pli.sh/ify';
-    
-    console.log('tabUrl', tabUrl)
-    console.log('mode', mode)
 
   try {
     const requestData = {
