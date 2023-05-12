@@ -9,15 +9,27 @@
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
   },
+  "options_page": "options.html",
   "action": {
     "default_popup": "popup.html",
     "default_title": "plish",
     "default_icon": "images/icon-48.png"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage",
+    "contextMenus"
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "commands": {
+    "triggerExtension": {
+      "description": "Trigger the extension",
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      }
+    }
   }
 }

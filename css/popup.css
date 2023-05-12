@@ -1,118 +1,51 @@
-/* ! Base Body Styles */
 body {
-width: 300px;
-height: 50px;
+width: 200px;
+height: 185px;
 margin: 0;
 padding: 0;
-
-text-align: center;
-
-border-radius: 10px;
-
-}
-
-
-button {
-  border: none;
-  background-color: #333333;
 }
 
 .mode-button.active {
     transform: scale(1.25);
-
     border-radius: 5px;
     background-color: #007bff;
 }
 
-body.light-theme,
-body:not(.dark-theme) {
-  color: #000000;
-  background-color: #ffffff;
-}
-
-button.light-theme,
-button:not(.dark-theme) {
-  color: #000000;
-  background-color: #f0f0f0;
-}
-
-
-body.dark-theme {
-  color: #ffffff;
-  background-color: #1a1a1a;
-}
-
-button.dark-theme {
-  color: #ffffff;
-  background-color: #333333;
-}
-
-
-.popup-title {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    margin: 10px;
-    padding: 5px;
-
-    color: #5046e5;
-}
-.popup-title a {
-    color: #5046e5;
-}
-
-
-#color-theme-container {
-    position: absolute;
-    top : 0;
-    right: 0;
-
-    display: flex;
-
-    margin: 10px;
-    padding: 10px;
-}
-
-#color-theme-container button {
-        cursor: pointer;
-}
-
-
 #mode-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    margin: 10px;
-    padding: 10px;
-
+    margin: 5px;
+    padding: 5px;
+    background-color: #5046e5;;
+    border-radius: 10px;
 }
 
-
 #mode-container button {
-    width: 85px;
-    height: auto;
+    width: 75px;
+    height: 75px;
     margin: 5px;
-    padding: 0;
+    padding: 5px;
+    font-size: small;
 
     cursor: pointer;
-    text-align: center;
+    align-self: center;
+    color: white;
+    background-color: #5046e5;;
 
+    border: none;
     border-radius: 5px;
+    outline: silver solid 1px;
     box-shadow: inset 0 0 6px #b0b0b0;
 }
 
 
 #mode-container button:hover {
     transition: transform 0.15s ease-in-out;
-    transform: scale(1.15);
-
+    transform: scale(1.1);
     box-shadow: 0 0 6px #000000;
-
-    
 }
-
 
 #successMessage {
 display: none;

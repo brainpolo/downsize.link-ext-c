@@ -44,11 +44,7 @@ function sendMessage(tabUrl, mode) {
     const queryOptions = { active: true, currentWindow: true };
     const [tab] = await chrome.tabs.query(queryOptions);
     const tabUrl = tab.url;
-    
-    const mode1Button = document.getElementById('mode1');
-    const mode2Button = document.getElementById('mode2');
-    const mode3Button = document.getElementById('mode3');
-    
+
    const handleClick = async (event) => {
     const mode = event.target.value;
     try {
@@ -64,7 +60,9 @@ function sendMessage(tabUrl, mode) {
     }
 };
 
-    mode1Button.addEventListener('click', (event) => handleClick(event));
-    mode2Button.addEventListener('click', (event) => handleClick(event));
-    mode3Button.addEventListener('click', (event) => handleClick(event));
+const modeButtons = document.querySelectorAll('.link-mode-button');
+  modeButtons.forEach((button) => {
+    button.addEventListener('click', (event) => handleClick(event));
+  });
+
 })();

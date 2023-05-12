@@ -7,37 +7,37 @@
 
   <body>
 
-    <h2 class="popup-title">
-        <a href="https://pli.sh" target="_blank" rel="noopener noreferrer"
-        >pli.sh/ify</a> page
-    </h2>
-    <div id="color-theme-container">
-        <button id="color_mode1" class="mode-button" value="1">🔅</button>
-        <button id="color_mode2" class="mode-button" value="2">🌚</button>
-        <button id="color_mode3" class="mode-button" value="3">⚡️</button>
-    </div>
-    <br/>
-    <br/>
+ 
+
     <div id="successMessage">✅ copied to clipboard!</div>
+
+    <main>
     <div id="mode-container">
-        <button id="mode1" value="1" style="background-color: #17a34a">
-            <b>provisional</b>
-            <br/>
-            2h no-use
-        </button>
-        <button id="mode2" value="2" style="background-color: #3c82f6">
-            <b>planned</b>
-            <br/>
-            2d no-use
-        </button>
-        <button id="mode3" value="3" style="background-color: #6b7280">
-            <b>persistent</b>
-            <br/>
-            2w no-use
-        </button>
+        <div>
+            <button class="link-mode-button" value="0">
+                <b>prompt</b><br/>
+                ♽ 1h
+            </button>
+            <button  class="link-mode-button" value="1">
+                <b>provisional</b><br/>
+                ♽ 2d
+            </button>
+        </div>
+        <div>
+     
+            <button class="link-mode-button" value="2">
+                <b>planned</b><br/>
+                ♽ 2w
+            </button>
+            <button class="link-mode-button" value="3">
+                <b>persistent</b><br/>
+                ♽ 6m
+            </button>
+        </div>
     </div>
+</main>
 
 <script src="popup.js"></script>
-<script src="theme.js"></script>
-  </body>
+</body>
+
 </html>
