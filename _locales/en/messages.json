@@ -1,0 +1,61 @@
+{
+    "extName": {
+        "message": "downsize | share short and secure links",
+        "description": "Extension name"
+    },
+    "extDescription": {
+        "message": "A free, privacy-focused URL shortener.",
+        "description": "Extension description"
+    },
+
+    "optionsTitle": {
+        "message": "downsize | user options",
+        "description": "Options page title"
+    },
+    "passphraseLabel": {
+        "message": "Your passphrase if you want to access your links from the website (optional)",
+        "description": "Passphrase label"
+    },
+    "passphraseNote": {
+        "message": "You can change your passphrase at any time and it is recommended to do so to isolate your links and maximise your privacy.",
+        "description": "Passphrase note"
+    },
+    "keyboardLayoutLabel": {
+        "message": "Your keyboard layout to generate links easy to type",
+        "description": "Keyboard layout label"
+    },
+    "save": {
+        "message": "save",
+        "description": "Save text"
+    },
+    "optionsSavedAlert": {
+        "message": "Options save successfully!",
+        "description": "Saved options alert"
+    },
+
+    "contextMenuLinkSelectTitle": {
+        "message": "Open through downsize.link",
+        "description": "Link selector context menu title"
+    },
+
+    "mode1": {
+        "message": "prompt",
+        "description": "Mode 1"
+    },
+    "mode2": {
+        "message": "provisional",
+        "description": "Mode 2"
+    },
+    "mode3": {
+        "message": "planned",
+        "description": "Mode 3"
+    },
+    "mode4": {
+        "message": "persistent",
+        "description": "Mode 4"
+    },
+    "savedToClipboardAlert": {
+        "message": "Link saved to clipboard!",
+        "description": "Saved to clipboard alert"
+    }
+}

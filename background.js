@@ -1,11 +1,12 @@
-chrome.contextMenus.create({
-  id: "link-selector",
-  title: "open link routed through pli.sh",
-  contexts: ["link"]
-});
-
-
-
+let contextMenuCreated = false;
+if (!contextMenuCreated) {
+  chrome.contextMenus.create({
+    id: "link-selector",
+    title: chrome.i18n.getMessage("contextMenuLinkSelectTitle"),
+    contexts: ["link"]
+  });
+  contextMenuCreated = true;
+}
 
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if (info.menuItemId === "link-selector") {
@@ -46,15 +47,29 @@ function getPassphrase() {
   });
 }
 
+function getKeyboardLayout() {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get('keyboardLayout', (data) => {
+      if (chrome.runtime.lastError) {
+        return reject(chrome.runtime.lastError);
+      }
+      resolve(data.keyboardLayout);
+    });
+  });
+}
+
+
 
 async function fetchData(tabUrl, mode) {
-  const apiEndpoint = 'https://pli.sh/ify';
+  const apiEndpoint = 'https://downsize.link/ify';
   let passphrase = await getPassphrase();
+  let keyboard = await getKeyboardLayout();
 
   try {
     const requestData = {
         url: tabUrl,
         mode: mode,
+        keyboard: keyboard,
         passphrase: passphrase
     };
     console.log("Request data: " + JSON.stringify(requestData))

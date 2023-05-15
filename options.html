@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/options.css">
+</head>
+
 <body>
-    <h1>pli.sh options</h1>
+    <h1 id="optionsTitle"></h1>
     <hr/>
     <br/>
+    <div id="success-banner" style="display: none;"><span id="optionsSavedAlert"></span></div>
+
     <form id="options-form">
-      <label for="passphrase">Your passphrase (you can change this as frequently as you like, passphrases are not linked to your identity)</label><br>
-      <input type="text" id="passphrase" name="passphrase"><br>
-      <input type="submit" value="Save">
+      <div>
+        <input type="text" id="passphrase" name="passphrase">
+        <label id="passphraseLabel" for="passphrase"></label>
+      </div>
+      <b id="passphraseNote"></b>
+      <div>
+      <select id="keyboardLayout" name="keyboardLayout">
+        <option value="qwerty">QWERTY</option>
+        <option value="qwertz">QWERTZ</option>
+        <option value="azerty">AZERTY</option>
+        <option value="dvorak">DVORAK</option>
+      </select>
+      <label id="keyboardLayoutLabel" for="keyboardLayout"></label>
+    </div>
+      <button id="saveButton" type="submit"></button>
     </form>
 
 <script src="options.js"></script>

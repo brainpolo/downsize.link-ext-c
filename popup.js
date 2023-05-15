@@ -1,3 +1,11 @@
+
+document.getElementById('mode1').textContent = chrome.i18n.getMessage('mode1');
+document.getElementById('mode2').textContent = chrome.i18n.getMessage('mode2');
+document.getElementById('mode3').textContent = chrome.i18n.getMessage('mode3');
+document.getElementById('mode4').textContent = chrome.i18n.getMessage('mode4');
+document.getElementById('successMessage').textContent = chrome.i18n.getMessage('savedToClipboardAlert');
+document.getElementById('successMessage').style.display = 'none';
+
 function copyToClipboard(text) {
   const textarea = document.createElement('textarea');
   textarea.value = text;
@@ -52,6 +60,7 @@ function sendMessage(tabUrl, mode) {
       if (response && response.success) {
         const success = await copyToClipboard(response.data);
         if (success) {
+          document.getElementById('mode-container').remove();
           showSuccessMessage();
         }
       }

@@ -1,0 +1,61 @@
+{
+    "extName": {
+        "message": "downsize | compartir enlaces cortos y seguros",
+        "description": "Extension name"
+    },
+    "extDescription": {
+        "message": "Un acortador de enlaces gratis para su privicidad.",
+        "description": "Extension description"
+    },
+
+    "optionsTitle": {
+        "message": "downsize | opciones de usuario",
+        "description": "Options page title"
+    },
+    "passphraseLabel": {
+        "message": "Su contraseña de enlaces si desea acceder a sus enlaces vinculados desde el sitio web (opcional).",
+        "description": "Passphrase label"
+    },
+    "passphraseNote": {
+        "message": "Puede cambiar su contraseña en cualquier momento. Se recomienda mantener contraseñas diferentes para aislar sus enlaces y para ocultar su identidad.",
+        "description": "Passphrase note"
+    },
+    "keyboardLayoutLabel": {
+        "message": "Su tipo de teclado para generar enlaces que sean fáciles de escribir.",
+        "description": "Keyboard layout label"
+    },
+    "save": {
+        "message": "guardar",
+        "description": "Save text"
+    },
+    "optionsSavedAlert": {
+        "message": "¡Opciones guardadas con éxito!",
+        "description": "Saved options alert"
+    },
+
+    "contextMenuLinkSelectTitle": {
+        "message": "Abrir mediante downsize.link",
+        "description": "Link selector context menu title"
+    },
+
+    "mode1": {
+        "message": "pronto",
+        "description": "Mode 1"
+    },
+    "mode2": {
+        "message": "provisional",
+        "description": "Mode 2"
+    },
+    "mode3": {
+        "message": "planeado",
+        "description": "Mode 3"
+    },
+    "mode4": {
+        "message": "persistente",
+        "description": "Mode 4"
+    },
+    "savedToClipboardAlert": {
+        "message": "¡Enlace copiado al portapapeles!",
+        "description": "Saved to clipboard alert"
+    }
+}
