@@ -1,10 +1,86 @@
 
+document.getElementById('access-passphrase-button').textContent = chrome.i18n.getMessage('accessPassphrase');
 document.getElementById('mode1').textContent = chrome.i18n.getMessage('mode1');
 document.getElementById('mode2').textContent = chrome.i18n.getMessage('mode2');
 document.getElementById('mode3').textContent = chrome.i18n.getMessage('mode3');
 document.getElementById('mode4').textContent = chrome.i18n.getMessage('mode4');
 document.getElementById('successMessage').textContent = chrome.i18n.getMessage('savedToClipboardAlert');
 document.getElementById('successMessage').style.display = 'none';
+
+
+document.getElementById('home-button').addEventListener('click', function() {
+  chrome.tabs.create({ url: 'https://downsize.link' });
+});
+
+
+document.getElementById('options-button').addEventListener('click', function() {
+  chrome.runtime.openOptionsPage();
+});
+
+
+document.getElementById('access-passphrase-button').addEventListener('click', function() {
+  chrome.runtime.sendMessage({ message: 'getPassphrase' }, function(response) {
+    if (response.error) {
+      console.error('Failed to get passphrase:', response.error);
+    } else {
+      let passphrase = response.passphrase;
+      console.log('Passphrase:', passphrase);
+
+      const fastApiUrl = 'https://downsize.link/links';
+
+      // Create new FormData instance
+      let formData = new FormData();
+      formData.append('passkey', passphrase);
+
+      fetch(fastApiUrl, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+        .then(links => {
+          if (links.error) {
+            alert(links.error);
+            return;
+          }
+        
+        console.log('Links:', links);
+          let linksList = document.getElementById('links-list');
+
+          while (linksList.firstChild) {
+            linksList.removeChild(linksList.firstChild);
+          }
+          
+        links.forEach(link => {
+          let a = document.createElement('a');
+          a.textContent = "[" + link.host + "/" + link.link_id + "] " + link.url;
+          a.href = "https://" + link.host + "/" + link.link_id;
+          a.target = '_blank'; // Open the link in a new tab
+          
+          let li = document.createElement('li');
+          li.appendChild(a); // Append the link to the list item
+          
+          linksList.appendChild(li); // Append the list item to the links list
+        });
+
+
+        // Switch to the links view
+        document.getElementById('main-view').style.display = 'none';
+        document.getElementById('links-view').style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  });
+});
+
+
+document.getElementById('back-button').addEventListener('click', function() {
+  // Switch back to the main view
+  document.getElementById('links-view').style.display = 'none';
+  document.getElementById('main-view').style.display = 'block';
+});
+
 
 function copyToClipboard(text) {
   const textarea = document.createElement('textarea');

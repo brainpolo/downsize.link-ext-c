@@ -1,19 +1,16 @@
-let contextMenuCreated = false;
-if (!contextMenuCreated) {
+chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "link-selector",
     title: chrome.i18n.getMessage("contextMenuLinkSelectTitle"),
     contexts: ["link"]
   });
-  contextMenuCreated = true;
-}
+});
 
 chrome.contextMenus.onClicked.addListener(function(info, tab) {
   if (info.menuItemId === "link-selector") {
     (async () => {
       try {
-        let url = await fetchData(info.linkUrl, 1);  // link/mode
-        console.log("Routed link: " + url);
+        let url = await fetchData(info.linkUrl, -1);  // negative mode
         if (!/^https?:\/\//i.test(url)) {
           url = 'https://' + url;
         }
@@ -25,16 +22,6 @@ chrome.contextMenus.onClicked.addListener(function(info, tab) {
   }  
 });
 
-
-async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch (err) {
-    console.error('Failed to copy text: ', err);
-    return false;
-  }
-}
 
 function getPassphrase() {
   return new Promise((resolve, reject) => {
@@ -103,3 +90,45 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   return true;
 });
+
+chrome.commands.onCommand.addListener(async (command) => {
+  if (command === 'copy_clipboard') {
+    // Get the active tab in the current window
+    chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
+      const response = await fetchData(tabs[0].url, 1);  // tab/mode
+      // Inject a content script into the active tab and send the response to it
+      if (response) {
+        chrome.scripting.executeScript({
+          target: { tabId: tabs[0].id },
+          function: copyToClipboard,
+          args: [response]
+        });
+      }
+    });
+  }
+});
+
+function copyToClipboard(data) {
+  navigator.clipboard.writeText(data).then(() => {
+    console.log('Copied to clipboard: ' + data);
+  }, (err) => {
+    console.error('Failed to copy text: ', err);
+  });
+}
+
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.message === 'getPassphrase') {
+    getPassphrase()
+      .then(passphrase => {
+        sendResponse({ passphrase: passphrase });
+      })
+      .catch(error => {
+        sendResponse({ error: error });
+      });
+
+    // Indicate that response is async
+    return true;
+  }
+});
+

@@ -57,5 +57,17 @@
     "savedToClipboardAlert": {
         "message": "¡Enlace copiado al portapapeles!",
         "description": "Saved to clipboard alert"
+    },
+    "passphraseTooShortAlert": {
+        "message": "¡La contraseña es demasiado corta!",
+        "description": "Passphrase too short alert"
+    },
+    "passphraseTooLongAlert": {
+        "message": "¡La contraseña es demasiado larga!",
+        "description": "Passphrase too long alert"
+    },
+    "accessPassphrase": {
+        "message": "ver enlaces",
+        "description": "Access passphrase"
     }
 }

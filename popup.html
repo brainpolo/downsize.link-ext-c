@@ -6,33 +6,50 @@
   </head>
 
   <body>
-    <div id="successMessage"></div>
+    <div id="main-view">
+        <div id="successMessage"></div>
 
-    <main>
-    <div id="mode-container">
-        <div>
-            <button class="link-mode-button" value="0">
-                <b id="mode1"></b><br/>
-                ♽ 1h
-            </button>
-            <button class="link-mode-button" value="1">
-                <b id="mode2"></b><br/>
-                ♽ 2d
-            </button>
+        <div class="row">
+            <div>
+                <button id="options-button" class="action-button">⛭</button>
+                <button id="home-button" class="action-button">🏠</button>
+            </div>
+            <button id="access-passphrase-button" class="action-button"></button>
+
         </div>
-        <div>
-     
-            <button class="link-mode-button" value="2">
-                <b id="mode3"></b><br/>
-                ♽ 2w
-            </button>
-            <button class="link-mode-button" value="3">
-                <b id="mode4"></b><br/>
-                ♽ 6m
-            </button>
+
+        <main>
+        <div id="mode-container">
+            <div>
+                <button class="link-mode-button" value="0">
+                    <b id="mode1"></b><br/>
+                    ♽ 1h
+                </button>
+                <button class="link-mode-button" value="1">
+                    <b id="mode2"></b><br/>
+                    ♽ 2d
+                </button>
+            </div>
+            <div>
+        
+                <button class="link-mode-button" value="2">
+                    <b id="mode3"></b><br/>
+                    ♽ 2w
+                </button>
+                <button class="link-mode-button" value="3">
+                    <b id="mode4"></b><br/>
+                    ♽ 6m
+                </button>
+            </div>
         </div>
-    </div>
-</main>
+
+    </main>
+</div>
+
+<div id="links-view">
+  <button id="back-button" class="action-button">⏎</button>
+  <ol id="links-list"></ol>
+</div>
 
 <script src="popup.js"></script>
 </body>

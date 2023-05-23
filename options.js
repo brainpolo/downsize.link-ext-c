@@ -17,8 +17,24 @@ function restoreOptions() {
 }
 document.addEventListener('DOMContentLoaded', restoreOptions);
 
+
 function saveOptions(e) {
   e.preventDefault();
+
+  // Validate options
+  MIN_PASSPHRASE_LENGTH = 20;
+  MAX_PASSPHRASE_LENGTH = 200;
+
+  if (document.querySelector('#passphrase').value.length < MIN_PASSPHRASE_LENGTH) {
+    alert(chrome.i18n.getMessage('passphraseTooShortAlert'));
+    return;
+  }
+  if (document.querySelector('#passphrase').value.length > MAX_PASSPHRASE_LENGTH) {
+    alert(chrome.i18n.getMessage('passphraseTooLongAlert'));
+    return;
+  }
+
+// Save options
   chrome.storage.local.set({
     passphrase: document.querySelector('#passphrase').value
   }, () => {

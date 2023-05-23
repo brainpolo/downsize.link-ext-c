@@ -57,5 +57,17 @@
     "savedToClipboardAlert": {
         "message": "Link saved to clipboard!",
         "description": "Saved to clipboard alert"
+    },
+    "passphraseTooShortAlert": {
+        "message": "Passphrase is too short!",
+        "description": "Passphrase too short alert"
+    },
+    "passphraseTooLongAlert": {
+        "message": "Passphrase is too long!",
+        "description": "Passphrase too long alert"
+    },
+    "accessPassphrase": {
+        "message": "view pass links",
+        "description": "Access passphrase"
     }
 }
